@@ -1,13 +1,13 @@
 import React from 'react';
+import FriendListItem from './FriendListItem';
 
-const FriendListItem = ({ avatar, name, isOnline }) => {
+const FriendList = ({ friends }) => {
   return (
-    <li className="item">
-      <span className={`status ${isOnline ? 'online' : 'offline'}`}></span>
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
-      <p className="name">{name}</p>
-    </li>
+    <ul className="friend-list">
+      {friends.map(friend => (
+        <FriendListItem key={friend.id} {...friend} />
+      ))}
+    </ul>
   );
 };
-
-export default FriendListItem;
+export default FriendList;
